@@ -49,6 +49,8 @@ public class Ready extends ListenerAdapter {
         assert channel != null;
         Guild guild = channel.getGuild();
         guild.getAudioManager().openAudioConnection(channel);
+        guild.getAudioManager().setSelfMuted(false);
+        guild.getAudioManager().setSelfDeafened(false);
 
         AudioPlayer player = playerManager.createPlayer();
         guild.getAudioManager().setSendingHandler(new AudioPlayerSendHandler(player));
